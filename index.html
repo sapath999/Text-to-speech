@@ -3,39 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text to Speech Converter</title>
+    <title>Voice Tools</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">TEXECH</div>
+            <div class="nav-links">
+                <a href="#" class="nav-link" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="tasks">Tasks</a>
+                <a href="#" class="nav-link" data-page="tts">Text to Speech</a>
+            </div>
+        </nav>
+    </header>
+
     <div class="container">
-        <h1>Text to Speech Converter</h1>
-        <div class="counter"><span id="charCount">0</span>/10,000 characters</div>
-        <textarea class="text-input" placeholder="Enter text here..." maxlength="10000"></textarea>
-        
-        <div class="settings">
-            <div class="setting-group">
-                <label for="voiceSelect">Voice:</label>
-                <select id="voiceSelect"></select>
-            </div>
-            <div class="setting-group">
-                <label for="rate">Speed:</label>
-                <input type="range" id="rate" min="0.5" max="2" value="1" step="0.1">
-                <span id="rateValue">1</span>
-            </div>
-            <div class="setting-group">
-                <label for="pitch">Pitch:</label>
-                <input type="range" id="pitch" min="0" max="2" value="1" step="0.1">
-                <span id="pitchValue">1</span>
+        <!-- Home Page -->
+        <div class="page active" id="home-page">
+            <div class="hero">
+                <h1>Transform Text into Natural Speech</h1>
+                <p>Our advanced text-to-speech converter lets you turn any written content into high-quality, natural sounding audio with customizable voices and settings.</p>
+                <a href="#" class="cta-button nav-link" data-page="tts">Try It Now</a>
             </div>
         </div>
 
-        <div class="controls">
-            <button class="start-btn" id="startBtn">Start Reading</button>
-            <button class="stop-btn" id="stopBtn">Stop</button>
+        <!-- Tasks Page -->
+        <div class="page" id="tasks-page">
+            <h2>Your Tasks</h2>
+            <div class="task-list">
+                <div class="task-card">
+                    <h3>Convert Blog Post</h3>
+                    <p>Convert your latest blog post to audio format for podcasting.</p>
+                    <button class="nav-link" data-page="tts">Start Now</button>
+                </div>
+                <div class="task-card">
+                    <h3>Create Audio Book</h3>
+                    <p>Turn your favorite book into an audio book with natural voices.</p>
+                    <button class="nav-link" data-page="tts">Start Now</button>
+                </div>
+                <div class="task-card">
+                    <h3>Language Learning</h3>
+                    <p>Practice pronunciation with text-to-speech in different languages.</p>
+                    <button class="nav-link" data-page="tts">Start Now</button>
+                </div>
+            </div>
         </div>
-        <div class="status" id="statusText">Ready to convert text to speech</div>
+
+        <!-- TTS Page -->
+        <div class="page" id="tts-page">
+            <h2>Text to Speech Converter</h2>
+            <div class="counter"><span id="charCount">0</span>/10,000 characters</div>
+            <textarea class="text-input" placeholder="Enter text here..." maxlength="10000"></textarea>
+            
+            <div class="settings">
+                <div class="setting-group">
+                    <label for="voiceSelect">Voice:</label>
+                    <select id="voiceSelect"></select>
+                </div>
+                <div class="setting-group">
+                    <label for="rate">Speed: <span id="rateValue">1</span></label>
+                    <input type="range" id="rate" min="0.5" max="2" value="1" step="0.1">
+                </div>
+                <div class="setting-group">
+                    <label for="pitch">Pitch: <span id="pitchValue">1</span></label>
+                    <input type="range" id="pitch" min="0" max="2" value="1" step="0.1">
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="start-btn" id="startBtn">Start Reading</button>
+                <button class="stop-btn" id="stopBtn">Stop</button>
+            </div>
+            <div class="status" id="statusText">Ready to convert text to speech</div>
+        </div>
     </div>
 
+    <footer>
+        <p>&copy; 2023 VoiceTools. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navigation between pages
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('data-page');
+                
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show selected page
+                document.getElementById(`${pageId}-page`).classList.add('active');
+            });
+        });
+
+        // Character counter
+        const textInput = document.querySelector('.text-input');
+        const charCount = document.getElementById('charCount');
+        
+        textInput.addEventListener('input', () => {
+            charCount.textContent = textInput.value.length;
+        });
+
+        // Range value displays
+        const rateInput = document.getElementById('rate');
+        const rateValue = document.getElementById('rateValue');
+        const pitchInput = document.getElementById('pitch');
+        const pitchValue = document.getElementById('pitchValue');
+        
+        rateInput.addEventListener('input', () => {
+            rateValue.textContent = rateInput.value;
+        });
+        
+        pitchInput.addEventListener('input', () => {
+            pitchValue.textContent = pitchInput.value;
+        });
+
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

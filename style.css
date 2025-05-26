@@ -1,267 +1,561 @@
 :root {
-            --primary: #000103;
-            --secondary: #2600ac;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --success: #3fa3c2;
-            --danger: #6f1515;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f7fa;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-        
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .page.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Home Page */
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            color: #555;
-        }
-        
-        .cta-button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .cta-button:hover {
-            background-color: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
-        }
-        
-        /* TTS Page */
-        .text-input {
-            width: 100%;
-            min-height: 200px;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            resize: vertical;
-            margin-bottom: 1.5rem;
-            transition: border 0.3s ease;
-        }
-        
-        .text-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-        }
-        
-        .counter {
-            text-align: right;
-            color: #777;
-            margin-bottom: 0.5rem;
-        }
-        
-        .settings {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .setting-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .setting-group label {
-            font-weight: 500;
-            color: #555;
-        }
-        
-        .controls {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        button {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            font-family: inherit;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .start-btn {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .start-btn:hover {
-            background-color: var(--secondary);
-        }
-        
-        .stop-btn {
-            background-color: var(--danger);
-            color: white;
-        }
-        
-        .stop-btn:hover {
-            background-color: #cd0b0b;
-        }
-        
-        .status {
-            padding: 1rem;
-            border-radius: 6px;
-            background-color: #f0f4ff;
-            color: var(--primary);
-            text-align: center;
-        }
-        
-        input[type="range"] {
-            width: 100%;
-            height: 8px;
-            -webkit-appearance: none;
-            background: #ddd;
-            border-radius: 4px;
-            outline: none;
-        }
-        
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            background: var(--primary);
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        
-        /* Tasks Page */
-        .task-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .task-card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-        
-        .task-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .task-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .task-card p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        
-        .task-card button {
-            background-color: var(--success);
-            color: white;
-        }
-        
-        .task-card button:hover {
-            background-color: #3ab5d8;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            color: #777;
-            border-top: 1px solid #eee;
-        }
+    --primary: #000103; /* Keep as is for navbar */
+    --secondary: #010b62; /* Keep as is for navbar */
+    --light: #ffffff;
+    --dark: #212529;
+    --success: #13647d;
+    --danger: #6f1515;
+
+    /* New variables for background-complementary colors */
+    --background-text: #E0E0E0;
+    --box-background: rgba(30, 30, 40, 0.8);
+    --heading-color: #9ECFFC;
+    --button-accent: #B069F9;
+    --button-hover-accent: #D090FF;
+    --border-color: rgba(150, 150, 170, 0.3);
+    --dropdown-background: rgba(40, 40, 50, 0.9);
+    --dropdown-text: #F0F0F0;
+    --dropdown-hover: rgba(60, 60, 70, 0.95);
+
+    /* Removed --neon-blue, --neon-purple, --neon-glow variables */
+    /* No neon-specific variables are needed for this request. */
+}
+
+@font-face {
+    font-family: bcd;
+    src: url(./);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('Flux_Dev_Vibrant_hyperrealistic_visuals_with_a_gammainfused_co_1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    color: var(--background-text);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: rgb(134, 132, 190);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Make header sticky if not already */
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* For burger menu positioning */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(150, 164, 239); /* Ensure logo color is visible */
+}
+
+/* --- START OF NAV LINKS & BURGER MENU CSS MODIFICATIONS --- */
+
+.nav-links {
+    display: flex;
+    flex-direction: row; /* Ensure horizontal for desktop */
+    gap: 2rem;
+    list-style: none; /* Remove default list bullets */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: rgb(150, 164, 239); /* Default color for nav links */
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.8rem; /* Add padding for better hover area */
+    transition: all 0.4s ease-in-out; /* Smooth transition for hover effects */
+    display: flex; /* Allow content to be centered */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Hide overflowing icon initially */
+}
+
+/* Base styles for text and icon */
+.nav-links a .nav-text {
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    display: inline-block; /* Ensure it takes up space for alignment */
+    padding-right: 0.5em; /* Space between text and icon */
+    transform: translateY(0); /* Ensure text is in view by default */
+    opacity: 1; /* Ensure text is visible by default */
+}
+
+.nav-links a .nav-icon {
+    position: absolute; /* Allows for precise positioning for the hover effect */
+    left: 50%; /* Center the icon relative to the link */
+    top: 50%; /* Center the icon relative to the link */
+    transform: translate(-50%, -50%) translateY(100%); /* Start icon below text */
+    opacity: 0; /* Icon is hidden by default */
+    font-size: 1.2rem; /* Adjust icon size */
+    color: rgb(150, 164, 239); /* Icon color matches default link color */
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+/* Hover effect: text slides out, icon appears in center */
+.nav-links a:hover {
+    color: rgb(150, 164, 239); /* Maintain original text color or choose a subtle hover color */
+    text-shadow: none; /* Explicitly remove any text-shadow */
+    background-color: transparent; /* Ensure background is transparent */
+}
+
+.nav-links a:hover .nav-text {
+    transform: translateY(-100%); /* Move text up out of view */
+    opacity: 0;
+}
+
+.nav-links a:hover .nav-icon {
+    transform: translate(-50%, -50%) translateY(0) scale(1.2); /* Move icon into view and slightly enlarge */
+    opacity: 1;
+    color: var(--button-accent); /* Change icon color on hover for emphasis */
+}
+
+/* Burger Menu Styles */
+.burger-menu {
+    display: none; /* Hidden by default on larger screens */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Above nav-links when open */
+}
+
+.burger-menu .line {
+    width: 100%;
+    height: 3px;
+    background-color: rgb(150, 164, 239);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Animation for Burger Menu icon */
+.burger-menu.open .line:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.burger-menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.open .line:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-links {
+        /*
+        The default `display: flex; flex-direction: row;` from above
+        is overridden here for mobile.
+        */
+        flex-direction: column; /* FORCED vertical for mobile dropdown */
+        position: absolute;
+        top: 100%; /* Position below the header */
+        right: 0;
+        background: linear-gradient(135deg, rgba(0, 1, 3, 0.95), rgba(3, 1, 110, 0.95)); /* Semi-transparent dark background */
+        width: 100%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        padding: 1rem 0;
+        border-radius: 0 0 8px 8px;
+        transition: all 0.3s ease-out;
+        transform: translateY(-100%); /* Start hidden above */
+        opacity: 0;
+        pointer-events: none; /* Disable interaction when hidden */
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+        transform: translateY(0); /* Slide down */
+        opacity: 1;
+        pointer-events: auto; /* Enable interaction */
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+
+    .nav-links a {
+        padding: 0.8rem 1rem;
+        display: block; /* Make links full width */
+        color: rgb(150, 164, 239); /* Ensure mobile links have correct color */
+    }
+
+    .burger-menu {
+        display: flex; /* Show burger menu */
+    }
+
+    /* Mobile: Icons and text appear side-by-side, no hover swap */
+    .nav-links a .nav-text {
+        transform: translateY(0);
+        opacity: 1;
+        padding-right: 0.5em; /* Space between text and icon */
+    }
+
+    .nav-links a .nav-icon {
+        position: static; /* Place icon in normal flow */
+        transform: none; /* Remove absolute positioning transforms */
+        opacity: 1; /* Make icon visible */
+        font-size: 1.5rem; /* Larger icon in mobile menu */
+        color: rgb(150, 164, 239); /* Icon color in mobile */
+    }
+
+    /* Disable hover effects in mobile */
+    .nav-links a:hover .nav-text,
+    .nav-links a:hover .nav-icon {
+        transform: none;
+        opacity: 1;
+        color: inherit; /* Reset color on hover */
+    }
+}
+/* --- END OF NAV LINKS & BURGER MENU CSS MODIFICATIONS --- */
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.page {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Home Page */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: var(--background-text);
+}
+
+.cta-button {
+    background-color: var(--button-accent);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: var(--button-hover-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(176, 105, 249, 0.3);
+}
+
+/* TTS Page */
+.text-input {
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    background-color: var(--box-background);
+    color: var(--background-text);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 1.5rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: var(--button-accent);
+    box-shadow: 0 0 0 3px rgba(176, 105, 249, 0.2);
+}
+
+.counter {
+    text-align: right;
+    color: var(--background-text);
+    margin-bottom: 0.5rem;
+}
+
+.settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.setting-group label {
+    font-weight: 500;
+    color: var(--background-text);
+}
+
+/* Dropdown for voice selection */
+.setting-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--dropdown-background);
+    color: var(--dropdown-text);
+    font-family: inherit;
+    font-size: 1rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23F0F0F0" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.setting-group select:focus {
+    outline: none;
+    border-color: var(--button-accent);
+    box-shadow: 0 0 0 3px rgba(176, 105, 249, 0.2);
+}
+
+.setting-group select option {
+    background-color: var(--dropdown-background);
+    color: var(--dropdown-text);
+}
+
+.setting-group select option:hover {
+    background-color: var(--dropdown-hover);
+}
+
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-btn {
+    background-color: var(--button-accent);
+    color: white;
+}
+
+.start-btn:hover {
+    background-color: var(--button-hover-accent);
+}
+
+.stop-btn {
+    background-color: var(--danger);
+    color: white;
+}
+
+.stop-btn:hover {
+    background-color: #b40707;
+}
+
+.status {
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: var(--box-background);
+    color: var(--heading-color);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 8px;
+    appearance: none;
+    background: var(--border-color);
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--button-accent);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Tasks Page */
+.task-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.task-card {
+    background: var(--box-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+uk
+.task-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+}
+
+.task-card p {
+    color: var(--background-text);
+    margin-bottom: 1rem;
+}
+
+.task-card button {
+    background-color: var(--success);
+    color: white;
+}
+
+.task-card button:hover {
+    background-color: #00c4e7;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    color: var(--background-text);
+    border-top: 1px solid var(--border-color);
+}
+/* ... (your existing CSS up to the .container section) ... */
+
+/* --- START OF NEW CONTACT SECTION CSS --- */
+.contact-form-container {
+    background: var(--box-background);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    max-width: 700px;
+    margin: 2rem auto; /* Center the form */
+}
+
+.contact-intro {
+    font-size: 1.1rem;
+    color: var(--background-text);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--heading-color);
+}
+
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly darker input background */
+    color: var(--background-text);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--button-accent);
+    box-shadow: 0 0 0 3px rgba(176, 105, 249, 0.2);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .cta-button {
+    width: auto; /* Allow button to size naturally */
+    display: block; /* Make it take full width */
+    margin: 1.5rem auto 0.5rem auto; /* Center the button */
+    text-align: center;
+}
+
+.contact-form .form-note {
+    font-size: 0.9em;
+    color: var(--background-text);
+    text-align: center;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+/* --- END OF NEW CONTACT SECTION CSS --- */
+
+/* ... (your existing CSS from .container down to footer) ... */

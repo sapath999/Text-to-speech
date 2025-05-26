@@ -3,60 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice Tools</title>
+    <title>TEXECH</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">TEXECH</div>
-            <div class="nav-links">
-                <a href="#" class="nav-link" data-page="home">Home</a>
-                <a href="#" class="nav-link" data-page="tasks">Tasks</a>
-                <a href="#" class="nav-link" data-page="tts">Text to Speech</a>
+            <ul class="nav-links">
+                <li><a href="#home" data-page="home"> <span class="nav-text">Home</span> <i class="fas fa-home nav-icon"></i> </a></li>
+                <li><a href="#tts" data-page="tts"> <span class="nav-text">TTS</span> <i class="fas fa-volume-up nav-icon"></i> </a></li>
+                <li><a href="#tasks" data-page="tasks"> <span class="nav-text">Tasks</span> <i class="fas fa-tasks nav-icon"></i> </a></li>
+                <li><a href="#contact" data-page="contact"> <span class="nav-text">Contact</span> <i class="fas fa-envelope nav-icon"></i> </a></li>
+            </ul>
+            <div class="burger-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
             </div>
         </nav>
     </header>
 
     <div class="container">
-        <!-- Home Page -->
         <div class="page active" id="home-page">
             <div class="hero">
-                <h1>Transform Text into Natural Speech</h1>
+                <h1>Transform Text Speech</h1>
                 <p>Our advanced text-to-speech converter lets you turn any written content into high-quality, natural sounding audio with customizable voices and settings.</p>
                 <a href="#" class="cta-button nav-link" data-page="tts">Try It Now</a>
             </div>
         </div>
 
-        <!-- Tasks Page -->
-        <div class="page" id="tasks-page">
-            <h2>Your Tasks</h2>
-            <div class="task-list">
-                <div class="task-card">
-                    <h3>Convert Blog Post</h3>
-                    <p>Convert your latest blog post to audio format for podcasting.</p>
-                    <button class="nav-link" data-page="tts">Start Now</button>
-                </div>
-                <div class="task-card">
-                    <h3>Create Audio Book</h3>
-                    <p>Turn your favorite book into an audio book with natural voices.</p>
-                    <button class="nav-link" data-page="tts">Start Now</button>
-                </div>
-                <div class="task-card">
-                    <h3>Language Learning</h3>
-                    <p>Practice pronunciation with text-to-speech in different languages.</p>
-                    <button class="nav-link" data-page="tts">Start Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- TTS Page -->
         <div class="page" id="tts-page">
             <h2>Text to Speech Converter</h2>
             <div class="counter"><span id="charCount">0</span>/10,000 characters</div>
             <textarea class="text-input" placeholder="Enter text here..." maxlength="10000"></textarea>
-            
+
             <div class="settings">
                 <div class="setting-group">
                     <label for="voiceSelect">Voice:</label>
@@ -78,52 +61,54 @@
             </div>
             <div class="status" id="statusText">Ready to convert text to speech</div>
         </div>
-    </div>
+
+        <div class="page" id="tasks-page">
+            <h2>Your Tasks</h2>
+            <div class="task-list">
+                <div class="task-card">
+                    <h3>Convert Blog Post</h3>
+                    <p>Convert your latest blog post to audio format for podcasting.</p>
+                    <button class="nav-link" data-page="tts">Start Now</button>
+                </div>
+                <div class="task-card">
+                    <h3>Create Audio Book</h3>
+                    <p>Turn your favorite book into an audio book with natural voices.</p>
+                    <button class="nav-link" data-page="tts">Start Now</button>
+                </div>
+                <div class="task-card">
+                    <h3>Language Learning</h3>
+                    <p>Practice pronunciation with text-to-speech in English language.</p>
+                    <button class="nav-link" data-page="tts">Start Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="contact-page">
+            <h2>Send Feedback</h2>
+            <div class="contact-form-container">
+                <p class="contact-intro">We'd love to hear from you! Please use the form below to send us your feedback, questions, or suggestions.</p>
+                <form id="feedbackForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="feedbackEmail">Your Email (Optional):</label>
+                        <input type="email" id="feedbackEmail" name="email" placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackMessage">Feedback:</label>
+                        <textarea id="feedbackMessage" name="message" rows="8" placeholder="Type your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" id="sendFeedbackBtn">Send Feedback</button>
+                    <p class="form-note">
+                        This will open your default email client.
+                    </p>
+                </form>
+            </div>
+        </div>
+        </div>
 
     <footer>
-        <p>&copy; 2023 VoiceTools. All rights reserved.</p>
+        <p>&copy; 2025 VoiceTools. Free and no ads here.</p>
     </footer>
 
-    <script>
-        // Navigation between pages
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const pageId = link.getAttribute('data-page');
-                
-                // Hide all pages
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
-                
-                // Show selected page
-                document.getElementById(`${pageId}-page`).classList.add('active');
-            });
-        });
-
-        // Character counter
-        const textInput = document.querySelector('.text-input');
-        const charCount = document.getElementById('charCount');
-        
-        textInput.addEventListener('input', () => {
-            charCount.textContent = textInput.value.length;
-        });
-
-        // Range value displays
-        const rateInput = document.getElementById('rate');
-        const rateValue = document.getElementById('rateValue');
-        const pitchInput = document.getElementById('pitch');
-        const pitchValue = document.getElementById('pitchValue');
-        
-        rateInput.addEventListener('input', () => {
-            rateValue.textContent = rateInput.value;
-        });
-        
-        pitchInput.addEventListener('input', () => {
-            pitchValue.textContent = pitchInput.value;
-        });
-
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
